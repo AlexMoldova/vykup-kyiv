@@ -28,7 +28,10 @@ html[lang="ru"] .ru{display:revert}
 .lang-btn.active{background:var(--gold);color:var(--bg)}
 .lang-btn:hover:not(.active){color:var(--white)}
 .hdr-right{text-align:right}
-.hdr-phone{display:block;font-size:1.2rem;font-weight:800;color:var(--gold2);text-decoration:none;line-height:1.2;white-space:nowrap}
+.hdr-phones{display:flex;flex-direction:column;align-items:flex-end;gap:1px}
+.hdr-phone{display:block;font-weight:800;color:var(--gold2);text-decoration:none;white-space:nowrap;line-height:1.25}
+.hdr-ph-main{font-size:1.2rem}
+.hdr-ph-alt{font-size:.92rem;color:var(--muted);font-weight:700}
 .hdr-msg{display:flex;gap:12px;justify-content:flex-end;margin-top:3px}
 .hdr-msg a{font-size:.75rem;font-weight:600;color:var(--muted);text-decoration:none;transition:color .2s}
 .hdr-msg a:hover{color:var(--gold)}
@@ -204,12 +207,14 @@ footer a{color:var(--gold);text-decoration:none}
   .fm-icon{right:10px}
 }
 @media(max-width:520px){
-  .header{height:auto;padding:8px 12px;flex-wrap:wrap;gap:6px}
+  .header{height:auto;padding:10px 12px;flex-wrap:nowrap;gap:8px}
   .lang-sw{display:none}
   .logo span{font-size:1rem!important}
   .logo span span{font-size:.75rem!important}
   .logo{font-size:1rem}
-  .hdr-phone{font-size:.85rem}
+  .hdr-phones{align-items:flex-end}
+  .hdr-ph-main{font-size:1.02rem}
+  .hdr-ph-alt{display:none}
   .hdr-right{text-align:right}
 }
 @media(max-width:380px){
@@ -245,9 +250,11 @@ footer a{color:var(--gold);text-decoration:none}
     <button class="lang-btn" data-lang="ru" onclick="setLang('ru')">RU</button>
   </div>
   <div class="hdr-right">
-    <a class="hdr-phone" href="tel:+380937025842">+38 (093) 702-58-42</a>
-    <a class="hdr-phone" href="tel:+380979121212">+38 (097) 912-12-12</a>
-    <a class="hdr-phone" href="tel:+380961881818">+38 (096) 188-18-18</a>
+    <div class="hdr-phones">
+      <a class="hdr-phone hdr-ph-main" href="tel:+380937025842">+38 (093) 702-58-42</a>
+      <a class="hdr-phone hdr-ph-alt" href="tel:+380979121212">+38 (097) 912-12-12</a>
+      <a class="hdr-phone hdr-ph-alt" href="tel:+380961881818">+38 (096) 188-18-18</a>
+    </div>
     <div class="hdr-msg">
       <a href="viber://chat?number=%2B380937025842">📱 Viber</a>
       <a href="https://t.me/+380937025842">✈️ Telegram</a>
