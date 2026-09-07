@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>АвтоВикуп Київ — Терміновий викуп авто в Києві та Київській області</title>
+<meta name="description" content="Терміновий викуп авто в Києві та Київській області. Платимо до 95% від ринкової вартості. Гроші одразу. Виїзд оцінювача безкоштовно.">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+:root{--bg:#0D0D0D;--bg2:#1A1A1A;--bg3:#222222;--bg4:#2A2A2A;--gold:#CC0000;--gold2:#FF3333;--white:#fff;--muted:#AAAAAA;--border:rgba(204,0,0,.25)}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);overflow-x:hidden}
+
+/* ── LANG CSS SWITCH ── */
+.ru{display:none}
+html[lang="ru"] .ua{display:none}
+html[lang="ru"] .ru{display:revert}
+
+/* ── HEADER ── */
+.header{background:var(--bg2);padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:200;border-bottom:2px solid var(--gold);gap:10px}
+.logo{font-size:1.6rem;font-weight:900;color:var(--gold);letter-spacing:-1px;text-decoration:none;flex-shrink:0}
+.logo em{color:var(--white);font-style:normal}
+.lang-sw{display:flex;gap:3px;background:rgba(255,255,255,.08);border-radius:6px;padding:3px;flex-shrink:0}
+.lang-btn{background:none;border:none;color:var(--muted);font-size:.75rem;font-weight:700;padding:4px 10px;border-radius:4px;cursor:pointer;transition:all .15s;font-family:inherit;letter-spacing:.5px}
+.lang-btn.active{background:var(--gold);color:var(--bg)}
+.lang-btn:hover:not(.active){color:var(--white)}
+.hdr-right{text-align:right}
+.hdr-phone{display:block;font-size:1.2rem;font-weight:800;color:var(--gold2);text-decoration:none;line-height:1.2;white-space:nowrap}
+.hdr-msg{display:flex;gap:12px;justify-content:flex-end;margin-top:3px}
+.hdr-msg a{font-size:.75rem;font-weight:600;color:var(--muted);text-decoration:none;transition:color .2s}
+.hdr-msg a:hover{color:var(--gold)}
+
+/* ── FLOATING MESSENGERS ── */
+.float-msg{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:400;display:flex;flex-direction:column;gap:6px}
+.fm-btn{display:flex;align-items:center;justify-content:flex-end;width:52px;height:52px;border-radius:10px 0 0 10px;text-decoration:none;overflow:hidden;transition:width .22s ease;box-shadow:-3px 3px 14px rgba(0,0,0,.4);position:relative}
+.fm-btn:hover{width:148px}
+.fm-icon{position:absolute;right:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.fm-icon svg{width:26px;height:26px;fill:#fff}
+.fm-lbl{font-size:.78rem;font-weight:700;color:#fff;position:absolute;left:14px;opacity:0;transition:opacity .18s;white-space:nowrap}
+.fm-btn:hover .fm-lbl{opacity:1}
+.fm-vi{background:#7360f2}
+.fm-tg{background:#229ed9}
+.fm-wa{background:#25d366}
+.fm-vi:hover{box-shadow:-4px 4px 20px rgba(115,96,242,.5)}
+.fm-tg:hover{box-shadow:-4px 4px 20px rgba(34,158,217,.5)}
+.fm-wa:hover{box-shadow:-4px 4px 20px rgba(37,211,102,.5)}
+
+/* ── TICKER ── */
+.ticker-block{overflow:hidden}
+.tick1{background:var(--gold);padding:9px 0}
+.tick2{background:var(--bg3);padding:9px 0;border-bottom:1px solid var(--border)}
+.ticker-move{display:inline-block;white-space:nowrap;animation:move 30s linear infinite}
+.tick1 .ticker-move{color:var(--bg);font-weight:800;font-size:.88rem;letter-spacing:.5px}
+.tick2 .ticker-move{color:var(--gold);font-weight:700;font-size:.88rem;letter-spacing:.5px}
+@keyframes move{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(160deg,rgba(11,25,41,.93) 0%,rgba(15,32,53,.88) 50%,rgba(21,42,68,.86) 100%),url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=1600&q=85') center/cover no-repeat;padding:60px 24px 70px}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:48px;align-items:center}
+.hero-left h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;line-height:1.05;text-transform:uppercase;letter-spacing:-1px}
+.hero-left h1 .hl{color:var(--gold)}
+.hero-sub{margin-top:16px;font-size:1.15rem;color:var(--muted);line-height:1.5}
+.hero-region{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px}
+.tag{border:1px solid var(--gold);color:var(--gold2);padding:5px 14px;border-radius:50px;font-size:.82rem;font-weight:600;background:rgba(245,158,11,.08)}
+.hero-badge{margin-top:32px;display:flex;gap:28px;flex-wrap:wrap}
+.badge-num{font-size:2rem;font-weight:900;color:var(--gold);line-height:1}
+.badge-txt{font-size:.75rem;color:var(--muted);margin-top:2px;max-width:90px;line-height:1.3}
+.hero-form{background:var(--bg2);border:1px solid var(--border);border-top:3px solid var(--gold);border-radius:12px;padding:32px 28px;box-shadow:0 24px 64px rgba(0,0,0,.5)}
+.hero-form h2{font-size:1.1rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.hero-form>p{color:var(--muted);font-size:.85rem;margin-bottom:20px}
+.f-field{margin-bottom:13px}
+.f-field label{display:block;font-size:.78rem;color:var(--muted);margin-bottom:5px;font-weight:600;text-transform:uppercase;letter-spacing:.3px}
+.f-field select,.f-field input{width:100%;padding:12px 14px;background:var(--bg3);border:1px solid rgba(255,255,255,.08);border-radius:8px;color:var(--white);font-size:.95rem;font-family:inherit;appearance:none;transition:border-color .2s}
+.f-field select:focus,.f-field input:focus{outline:none;border-color:var(--gold)}
+.f-field select option{background:var(--bg2)}
+.btn-gold{width:100%;padding:15px;background:var(--gold);color:var(--bg);font-weight:900;font-size:1rem;text-transform:uppercase;letter-spacing:.5px;border:none;border-radius:8px;cursor:pointer;transition:background .15s,transform .1s}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-1px)}
+.f-note{text-align:center;font-size:.73rem;color:var(--muted);margin-top:10px}
+
+/* ── SECTIONS ── */
+.section{padding:72px 24px}
+.section.dark{background:var(--bg2)}
+.section.darker{background:var(--bg3)}
+.wrap{max-width:1100px;margin:0 auto}
+.s-title{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;text-transform:uppercase;letter-spacing:-.5px;text-align:center}
+.s-title .hl{color:var(--gold)}
+.s-sub{text-align:center;color:var(--muted);margin-top:8px;font-size:.95rem}
+
+/* ── CONDITIONS ── */
+.cond-grid{margin-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px}
+.cond-card{background:var(--bg3);border:1px solid rgba(255,255,255,.06);border-radius:10px;overflow:hidden;text-align:center;transition:border-color .2s,transform .2s;cursor:default}
+.cond-card:hover{border-color:var(--gold);transform:translateY(-3px)}
+.cond-card img{width:100%;height:120px;object-fit:cover;display:block}
+.cond-card .ci{font-size:2rem;margin-bottom:10px;display:block}
+.cond-card p{padding:12px 8px 14px;font-size:.83rem;font-weight:700;text-transform:uppercase;letter-spacing:.3px;line-height:1.3}
+
+/* ── BENEFITS ── */
+.benefits-top{text-align:center;margin-bottom:40px}
+.benefits-top small{color:var(--gold);font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.benefits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.benefit-card{border:1px solid var(--border);border-radius:12px;padding:28px 22px;background:var(--bg)}
+.benefit-card .bi{font-size:2.2rem;margin-bottom:12px;display:block}
+.benefit-card .bnum{font-size:2rem;font-weight:900;color:var(--gold);line-height:1;margin-bottom:6px}
+.benefit-card h3{font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:.3px;margin-bottom:8px}
+.benefit-card p{font-size:.85rem;color:var(--muted);line-height:1.5}
+
+/* ── MID FORM ── */
+.mid-form-section{background:linear-gradient(135deg,var(--bg3),var(--bg4));padding:72px 24px}
+.mid-form-inner{max-width:620px;margin:0 auto;text-align:center}
+.mid-form-inner .s-title{margin-bottom:8px}
+.mid-form-inner .s-sub{margin-bottom:32px}
+.mid-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.mid-form-grid .f-field{margin-bottom:0}
+.f-full{grid-column:1/-1}
+
+/* ── CARS SLIDER ── */
+.cars-slider-wrap{margin-top:40px;overflow:hidden}
+.cars-slider{display:flex;gap:20px;animation:slide 28s linear infinite}
+.cars-slider:hover{animation-play-state:paused}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.car-card{flex:0 0 260px;background:var(--bg3);border:1px solid rgba(255,255,255,.07);border-radius:10px;overflow:hidden;text-align:center;transition:border-color .2s,transform .2s}
+.car-card:hover{border-color:var(--gold);transform:translateY(-3px)}
+.car-card img{width:100%;height:170px;object-fit:cover;display:block}
+.car-card .car-info{padding:14px 16px}
+.car-card .car-model{font-weight:700;font-size:.9rem}
+.car-card .car-year{color:var(--muted);font-size:.8rem;margin-top:2px}
+.car-card .car-price{color:var(--gold);font-weight:800;font-size:1rem;margin-top:8px}
+.car-card .car-cond{color:var(--muted);font-size:.75rem;margin-top:4px}
+
+/* ── CALLUS ── */
+.callus{background:var(--bg2);padding:64px 24px;text-align:center}
+.callus h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:900;text-transform:uppercase;margin-bottom:8px}
+.callus>p{color:var(--muted);margin-bottom:32px}
+.callus-btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.btn-call{display:inline-flex;align-items:center;gap:9px;padding:15px 28px;border-radius:8px;font-weight:800;font-size:.95rem;text-decoration:none;transition:opacity .2s,transform .15s}
+.btn-call:hover{opacity:.88;transform:translateY(-2px)}
+.b-phone{background:var(--gold);color:var(--bg);font-size:1.1rem}
+.b-viber{background:#7360f2;color:#fff}
+.b-tg{background:#229ed9;color:#fff}
+.b-wa{background:#25d366;color:#fff}
+
+/* ── STATS ── */
+.stats-bar{background:var(--gold);padding:40px 24px}
+.stats-grid{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;text-align:center}
+.stat-num{font-size:2.8rem;font-weight:900;color:var(--bg);line-height:1}
+.stat-lbl{font-size:.82rem;font-weight:700;color:var(--bg2);margin-top:4px}
+
+/* ── REVIEWS ── */
+.reviews-section{padding:72px 24px;background:var(--bg2)}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:40px}
+.rev-card{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:26px 22px}
+.rev-stars{color:var(--gold);font-size:1.05rem;margin-bottom:12px;letter-spacing:2px}
+.rev-text{font-size:.88rem;color:#cbd5e1;line-height:1.65;margin-bottom:16px}
+.rev-author{font-weight:800;font-size:.88rem}
+.rev-tag{color:var(--muted);font-size:.78rem;margin-top:2px}
+
+/* ── FAQ ── */
+.faq-section{padding:72px 24px;background:var(--bg2)}
+.faq-wrap{max-width:760px;margin:40px auto 0}
+.faq-item{border-bottom:1px solid rgba(255,255,255,.07)}
+.faq-q{padding:20px 0;font-weight:700;font-size:.97rem;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;user-select:none}
+.faq-q .arr{color:var(--gold);flex-shrink:0;transition:transform .25s;margin-top:2px}
+.faq-a{display:none;padding-bottom:18px;color:var(--muted);font-size:.9rem;line-height:1.65}
+.faq-item.open .faq-a{display:block}
+.faq-item.open .arr{transform:rotate(180deg)}
+
+/* ── REGIONS ── */
+.regions-section{padding:56px 24px;background:var(--bg);text-align:center}
+.regions-chips{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:24px}
+.region-chip{background:var(--bg3);border:2px solid var(--gold);border-radius:12px;padding:18px 30px;font-size:1rem;font-weight:700}
+.region-chip span{display:block;color:var(--muted);font-size:.78rem;font-weight:400;margin-top:3px}
+
+/* ── FOOTER ── */
+footer{background:#060e1b;padding:32px 24px;text-align:center;color:var(--muted);font-size:.83rem}
+.foot-logo{font-size:1.4rem;font-weight:900;color:var(--gold);margin-bottom:8px}
+footer a{color:var(--gold);text-decoration:none}
+
+/* ── MODAL ── */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:999;align-items:center;justify-content:center}
+.modal-bg.show{display:flex}
+.modal-box{background:var(--bg2);border:1px solid var(--gold);border-radius:16px;padding:44px 32px;max-width:400px;width:90%;text-align:center;position:relative}
+.modal-box .mx{position:absolute;top:14px;right:18px;font-size:1.4rem;cursor:pointer;color:var(--muted)}
+.modal-box .mi{font-size:3rem;margin-bottom:12px}
+.modal-box h2{font-size:1.4rem;font-weight:800;margin-bottom:8px}
+.modal-box p{color:var(--muted);font-size:.9rem;margin-bottom:24px}
+
+/* ── RESPONSIVE ── */
+@media(max-width:760px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-form{margin-top:0}
+  .mid-form-grid{grid-template-columns:1fr}
+  .hdr-msg{display:none}
+  .hero-badge{gap:18px}
+}
+@media(max-width:768px){
+  .float-msg{bottom:16px;top:auto;transform:none;flex-direction:row;gap:6px;right:8px}
+  .fm-btn{width:40px;height:40px;border-radius:8px}
+  .fm-btn:hover{width:40px}
+  .fm-lbl{display:none}
+  .fm-icon svg{width:20px;height:20px}
+  .fm-icon{right:10px}
+}
+@media(max-width:520px){
+  .header{height:auto;padding:8px 12px;flex-wrap:wrap;gap:6px}
+  .lang-sw{display:none}
+  .logo span{font-size:1rem!important}
+  .logo span span{font-size:.75rem!important}
+  .logo{font-size:1rem}
+  .hdr-phone{font-size:.85rem}
+  .hdr-right{text-align:right}
+}
+@media(max-width:380px){
+  .hdr-phone{font-size:.8rem}
+  .header{padding:6px 10px}
+  .logo span{font-size:.9rem!important}
+  .logo span span{font-size:.7rem!important}
+}
+</style>
+</head>
+<body>
+
+<!-- FLOATING MESSENGERS -->
+<div class="float-msg">
+  <a href="viber://chat?number=%2B380937025842" class="fm-btn fm-vi" title="Viber">
+    <span class="fm-lbl">Viber</span><span class="fm-icon"><svg viewBox="0 0 24 24"><path d="M11.398 0c1.444.018 4.598.322 6.817 2.271 1.924 1.688 3.015 4.14 3.235 6.812.215 2.613-.615 5.01-2.312 6.794-1.524 1.603-3.598 2.425-5.863 2.539-1.47.074-2.945-.163-4.312-.744-.152-.065-.287-.062-.438.01-1.426.666-2.855 1.323-4.282 1.983-.117.054-.232.11-.373.174.07-.807.18-1.572.206-2.341.018-.52-.091-.912-.39-1.277C1.98 14.62.84 12.626.61 10.394.35 7.81 1.25 5.44 3.136 3.523 5.416 1.232 8.376.085 11.398 0zm.08 1.494c-2.695-.003-5.307.955-7.313 2.966-1.464 1.468-2.326 3.298-2.17 5.402.19 2.563 1.564 4.46 3.795 5.577.533.266.735.585.684 1.199-.037.434-.092.866-.142 1.348 1.147-.378 2.2-.725 3.25-1.08.266-.09.494-.103.757.003 2.22.899 4.452.635 6.39-.728 2.213-1.557 3.278-3.738 3.155-6.44-.116-2.547-1.176-4.47-3.03-5.872-1.994-1.504-4.24-2.206-6.696-2.22-.111-.001-.223 0-.334 0h-.005z"/><path d="M6.678 15.784c-.387-.186-.532-.554-.364-.917.22-.48.45-.958.704-1.42.1-.183.288-.313.486-.324.534-.03 1.072-.02 1.607-.022.66-.002 1.32-.005 1.98.003.245.003.48.136.601.346.131.228.127.495.032.731-.26.645-.513 1.294-.789 1.934-.08.186-.235.31-.44.328-.362.033-.727.043-1.09.04-.362-.002-.727.008-1.09-.014-.24-.015-.407-.1-.482-.33-.036-.112-.072-.224-.107-.336-.024-.01-.048-.02-.07-.03.48-.004.96-.005 1.438-.008-.21-.498-.42-.996-.626-1.497-.343.003-.683.006-1.026 0-.203-.003-.328.08-.366.28-.082.427-.2.844-.305 1.264-.038.153-.103.227-.27.226-.461-.003-.923-.003-1.384-.004-.054 0-.108-.034-.162-.052z"/></svg></span>
+  </a>
+  <a href="https://t.me/+380937025842" class="fm-btn fm-tg" title="Telegram">
+    <span class="fm-lbl">Telegram</span><span class="fm-icon"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.96 6.502-1.358 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.901-.903-1.056-.692-1.653-1.123-2.678-1.799-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.788.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.141.12.098.153.23.169.333.016.104.036.334.02.485z"/></svg></span>
+  </a>
+  <a href="https://wa.me/380937025842" class="fm-btn fm-wa" title="WhatsApp">
+    <span class="fm-lbl">WhatsApp</span><span class="fm-icon"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span>
+  </a>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <a href="#" class="logo" style="text-decoration:none;display:flex;align-items:center;gap:10px;">
+    <img src="logo.png" alt="АвтоВикуп Київ" style="height:46px;width:auto;border-radius:8px;"><span style="font-size:1.35rem;font-weight:900;color:#CC0000;letter-spacing:-1px;line-height:1;text-transform:uppercase;">АвтоВикуп<br><span style="font-size:0.95rem;color:#AAAAAA;">Київ</span></span>
+  </a>
+  <div class="lang-sw">
+    <button class="lang-btn active" data-lang="uk" onclick="setLang('uk')">UA</button>
+    <button class="lang-btn" data-lang="ru" onclick="setLang('ru')">RU</button>
+  </div>
+  <div class="hdr-right">
+    <a class="hdr-phone" href="tel:+380937025842">+38 (093) 702-58-42</a>
+    <a class="hdr-phone" href="tel:+380979121212">+38 (097) 912-12-12</a>
+    <a class="hdr-phone" href="tel:+380961881818">+38 (096) 188-18-18</a>
+    <div class="hdr-msg">
+      <a href="viber://chat?number=%2B380937025842">📱 Viber</a>
+      <a href="https://t.me/+380937025842">✈️ Telegram</a>
+      <a href="https://wa.me/380937025842">💬 WhatsApp</a>
+    </div>
+  </div>
+</header>
+
+<!-- TICKER -->
+<div class="ticker-block">
+  <div class="tick1">
+    <div class="ticker-move">
+      &nbsp;&nbsp;⚡ <span class="ua">ДОВОЄННА ВАРТІСТЬ І БЕЗ ОБМАНУ</span><span class="ru">ДОВОЕННАЯ СТОИМОСТЬ И БЕЗ ОБМАНА</span> &nbsp;/&nbsp; <span class="ua">ДОВОЄННА ВАРТІСТЬ І БЕЗ ОБМАНУ</span><span class="ru">ДОВОЕННАЯ СТОИМОСТЬ И БЕЗ ОБМАНА</span> &nbsp;/&nbsp; <span class="ua">ДОВОЄННА ВАРТІСТЬ І БЕЗ ОБМАНУ</span><span class="ru">ДОВОЕННАЯ СТОИМОСТЬ И БЕЗ ОБМАНА</span> &nbsp;/&nbsp; <span class="ua">ДОВОЄННА ВАРТІСТЬ І БЕЗ ОБМАНУ</span><span class="ru">ДОВОЕННАЯ СТОИМОСТЬ И БЕЗ ОБМАНА</span> &nbsp;/&nbsp; <span class="ua">ДОВОЄННА ВАРТІСТЬ І БЕЗ ОБМАНУ</span><span class="ru">ДОВОЕННАЯ СТОИМОСТЬ И БЕЗ ОБМАНА</span> &nbsp;&nbsp;⚡ <span class="ua">ДОВОЄННА ВАРТІСТЬ І БЕЗ ОБМАНУ</span><span class="ru">ДОВОЕННАЯ СТОИМОСТЬ И БЕЗ ОБМАНА</span> &nbsp;/&nbsp; <span class="ua">ДОВОЄННА ВАРТІСТЬ І БЕЗ ОБМАНУ</span><span class="ru">ДОВОЕННАЯ СТОИМОСТЬ И БЕЗ ОБМАНА</span> &nbsp;/&nbsp; <span class="ua">ДОВОЄННА ВАРТІСТЬ І БЕЗ ОБМАНУ</span><span class="ru">ДОВОЕННАЯ СТОИМОСТЬ И БЕЗ ОБМАНА</span> &nbsp;/&nbsp; <span class="ua">ДОВОЄННА ВАРТІСТЬ І БЕЗ ОБМАНУ</span><span class="ru">ДОВОЕННАЯ СТОИМОСТЬ И БЕЗ ОБМАНА</span> &nbsp;/&nbsp; <span class="ua">ДОВОЄННА ВАРТІСТЬ І БЕЗ ОБМАНУ</span><span class="ru">ДОВОЕННАЯ СТОИМОСТЬ И БЕЗ ОБМАНА</span> &nbsp;
+    </div>
+  </div>
+  <div class="tick2">
+    <div class="ticker-move">
+      &nbsp;&nbsp;🛡️ <span class="ua">ПРАЦЮЄМО В ВОЄННИЙ ЧАС</span><span class="ru">РАБОТАЕМ В ВОЕННОЕ ВРЕМЯ</span> &nbsp;/&nbsp; <span class="ua">ПРАЦЮЄМО В ВОЄННИЙ ЧАС</span><span class="ru">РАБОТАЕМ В ВОЕННОЕ ВРЕМЯ</span> &nbsp;/&nbsp; <span class="ua">ПРАЦЮЄМО В ВОЄННИЙ ЧАС</span><span class="ru">РАБОТАЕМ В ВОЕННОЕ ВРЕМЯ</span> &nbsp;/&nbsp; <span class="ua">ПРАЦЮЄМО В ВОЄННИЙ ЧАС</span><span class="ru">РАБОТАЕМ В ВОЕННОЕ ВРЕМЯ</span> &nbsp;/&nbsp; <span class="ua">ПРАЦЮЄМО В ВОЄННИЙ ЧАС</span><span class="ru">РАБОТАЕМ В ВОЕННОЕ ВРЕМЯ</span> &nbsp;&nbsp;🛡️ <span class="ua">ПРАЦЮЄМО В ВОЄННИЙ ЧАС</span><span class="ru">РАБОТАЕМ В ВОЕННОЕ ВРЕМЯ</span> &nbsp;/&nbsp; <span class="ua">ПРАЦЮЄМО В ВОЄННИЙ ЧАС</span><span class="ru">РАБОТАЕМ В ВОЕННОЕ ВРЕМЯ</span> &nbsp;/&nbsp; <span class="ua">ПРАЦЮЄМО В ВОЄННИЙ ЧАС</span><span class="ru">РАБОТАЕМ В ВОЕННОЕ ВРЕМЯ</span> &nbsp;/&nbsp; <span class="ua">ПРАЦЮЄМО В ВОЄННИЙ ЧАС</span><span class="ru">РАБОТАЕМ В ВОЕННОЕ ВРЕМЯ</span> &nbsp;/&nbsp; <span class="ua">ПРАЦЮЄМО В ВОЄННИЙ ЧАС</span><span class="ru">РАБОТАЕМ В ВОЕННОЕ ВРЕМЯ</span> &nbsp;
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div style="font-size:0.85rem;font-weight:700;color:#CC0000;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;">🚗 АвтоВикуп Київ</div>
+      <h1>
+        <span class="ua">Викуп авто<br><span class="hl">за 2 години</span></span>
+        <span class="ru">Выкуп авто<br><span class="hl">за 2 часа</span></span>
+      </h1>
+      <p class="hero-sub">
+        <span class="ua">Купуємо ваше авто в будь-якому стані — швидко, чесно, за реальною ціною</span>
+        <span class="ru">Купим ваш автомобиль в любом состоянии — быстро, честно, по реальной цене</span>
+      </p>
+      <div class="hero-region">
+        <span class="tag"><span class="ua">📍 Київ</span><span class="ru">📍 Киев</span></span>
+        <span class="tag"><span class="ua">📍 Київська обл.</span><span class="ru">📍 Киевская обл.</span></span>
+        <span class="tag"><span class="ua">📍 Безкоштовний виїзд оцінювача</span><span class="ru">📍 Бесплатный выезд оценщика</span></span>
+      </div>
+      <div class="hero-badge">
+        <div><div class="badge-num">95%</div><div class="badge-txt"><span class="ua">від ринкової вартості</span><span class="ru">от рыночной стоимости</span></div></div>
+        <div><div class="badge-num">2<span class="ua">год</span><span class="ru">ч</span></div><div class="badge-txt"><span class="ua">повний цикл угоди</span><span class="ru">полный цикл сделки</span></div></div>
+        <div><div class="badge-num">16<span class="ua">р</span><span class="ru">л</span></div><div class="badge-txt"><span class="ua">на ринку з 2010</span><span class="ru">на рынке с 2010</span></div></div>
+      </div>
+    </div>
+    <div class="hero-form">
+      <h2><span class="ua">Дізнайтесь вартість авто</span><span class="ru">Узнайте стоимость авто</span></h2>
+      <p><span class="ua">Безкоштовна оцінка за 5 хвилин</span><span class="ru">Бесплатная оценка за 5 минут</span></p>
+      <form onsubmit="submitForm(event)">
+        <div class="f-field">
+          <label><span class="ua">Ваш телефон</span><span class="ru">Ваш телефон</span></label>
+          <input type="tel" placeholder="+380 XX XXX XX XX" required>
+        </div>
+        <div class="f-field">
+          <label><span class="ua">Стан авто</span><span class="ru">Состояние авто</span></label>
+          <select required class="sel-cond">
+            <option value=""><span class="ua">— Оберіть стан —</span></option>
+          </select>
+        </div>
+        <div class="f-field">
+          <label><span class="ua">Рік авто</span><span class="ru">Год авто</span></label>
+          <select required>
+            <option value="">—</option>
+            <option>2023–2024</option><option>2020–2022</option><option>2017–2019</option>
+            <option>2014–2016</option><option>2010–2013</option><option>2005–2009</option><option>До 2005</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-gold">
+          ⚡ <span class="ua">Отримати безкоштовну оцінку</span><span class="ru">Получить бесплатную оценку</span>
+        </button>
+      </form>
+      <p class="f-note">🔒 <span class="ua">Передзвонимо протягом 5 хвилин</span><span class="ru">Перезвоним в течение 5 минут</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE BUY -->
+<section class="section dark">
+  <div class="wrap">
+    <h2 class="s-title"><span class="ua">Швидко викупимо ваше авто</span><span class="ru">Быстро выкупим ваш автомобиль</span></h2>
+    <p class="s-sub"><span class="ua">в будь-якому стані</span><span class="ru">в любом состоянии</span></p>
+    <div class="cond-grid">
+      <div class="cond-card"><img src="img-dtp.png" alt="Після ДТП"><p><span class="ua">Після ДТП</span><span class="ru">После ДТП</span></p></div>
+      <div class="cond-card"><img src="img-kreditne.png" alt="Кредитне"><p><span class="ua">Кредитне</span><span class="ru">Кредитный</span></p></div>
+      <div class="cond-card"><img src="img-zatoplene.png" alt="Затоплене"><p><span class="ua">Затоплене</span><span class="ru">Затопленный</span></p></div>
+      <div class="cond-card"><img src="img-pozhezha.png" alt="Після пожежі"><p><span class="ua">Після пожежі</span><span class="ru">После пожара</span></p></div>
+      <div class="cond-card"><img src="img-problemne.png" alt="Проблемне"><p><span class="ua">Проблемне</span><span class="ru">Проблемный</span></p></div>
+      <div class="cond-card"><img src="img-vitchyznyane.png" alt="Вітчизняне"><p><span class="ua">Вітчизняне</span><span class="ru">Отечественный</span></p></div>
+      <div class="cond-card"><img src="img-nerozmytnene.png" alt="Нерозмитнене"><p><span class="ua">Нерозмитнене</span><span class="ru">Нерастаможенный</span></p></div>
+      <div class="cond-card"><img src="img-doc-problem.png" alt="З проблем. документами"><p><span class="ua">З проблем. документами</span><span class="ru">С проблем. документами</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="section">
+  <div class="wrap">
+    <div class="benefits-top">
+      <small>✦ <span class="ua">працюємо з 2010 року</span><span class="ru">работаем с 2010 года</span> ✦</small>
+      <h2 class="s-title" style="margin-top:8px;"><span class="ua">У нас <span class="hl">найкращі умови</span></span><span class="ru">У нас <span class="hl">лучшие условия</span></span></h2>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <span class="bi">💰</span>
+        <div class="bnum"><span class="ua">до 95%</span><span class="ru">до 95%</span></div>
+        <h3><span class="ua">від ринкової вартості</span><span class="ru">от рыночной стоимости</span></h3>
+        <p><span class="ua">Платимо максимально. Жодного зниження ціни в останню мить — тільки чесна угода.</span><span class="ru">Платим максимально. Никакого снижения цены в последний момент — только честная сделка.</span></p>
+      </div>
+      <div class="benefit-card">
+        <span class="bi">🔍</span>
+        <div class="bnum">5 <span class="ua">хвилин</span><span class="ru">минут</span></div>
+        <h3><span class="ua">безкоштовна оцінка</span><span class="ru">бесплатная оценка</span></h3>
+        <p><span class="ua">Оцінимо ваше авто по телефону безкоштовно і без зобов'язань.</span><span class="ru">Оценим автомобиль по телефону бесплатно и без обязательств.</span></p>
+      </div>
+      <div class="benefit-card">
+        <span class="bi">💵</span>
+        <div class="bnum"><span class="ua">одразу</span><span class="ru">сразу</span></div>
+        <h3><span class="ua">гроші після угоди</span><span class="ru">деньги после сделки</span></h3>
+        <p><span class="ua">Повна сума готівкою або на картку в день підписання — жодних очікувань.</span><span class="ru">Полная сумма наличными или на карту в день подписания — никакого ожидания.</span></p>
+      </div>
+      <div class="benefit-card">
+        <span class="bi">⏱️</span>
+        <div class="bnum">2 <span class="ua">години</span><span class="ru">часа</span></div>
+        <h3><span class="ua">цикл угоди</span><span class="ru">цикл сделки</span></h3>
+        <p><span class="ua">Від першого дзвінка до грошей у вас в руках — не більше двох годин.</span><span class="ru">От первого звонка до денег в ваших руках — не более двух часов.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MID FORM -->
+<section class="mid-form-section">
+  <div class="mid-form-inner">
+    <h2 class="s-title"><span class="ua">Розрахуйте вартість авто</span><span class="ru">Рассчитайте стоимость авто</span></h2>
+    <p class="s-sub"><span class="ua">безкоштовно за 30 секунд</span><span class="ru">бесплатно за 30 секунд</span></p>
+    <form onsubmit="submitForm(event)">
+      <div class="mid-form-grid">
+        <div class="f-field">
+          <label><span class="ua">Рік випуску</span><span class="ru">Год выпуска</span></label>
+          <select required>
+            <option value="">—</option>
+            <option>2023–2024</option><option>2020–2022</option><option>2017–2019</option>
+            <option>2014–2016</option><option>2010–2013</option><option>До 2010</option>
+          </select>
+        </div>
+        <div class="f-field">
+          <label><span class="ua">Стан автомобіля</span><span class="ru">Состояние авто</span></label>
+          <select required class="sel-cond"></select>
+        </div>
+        <div class="f-field">
+          <label><span class="ua">Коробка передач</span><span class="ru">Коробка передач</span></label>
+          <select class="sel-gear"></select>
+        </div>
+        <div class="f-field f-full">
+          <label><span class="ua">Ваш телефон</span><span class="ru">Ваш телефон</span></label>
+          <input type="tel" placeholder="+380 XX XXX XX XX" required>
+        </div>
+      </div>
+      <button type="submit" class="btn-gold">⚡ <span class="ua">Отримати безкоштовну оцінку</span><span class="ru">Получить бесплатную оценку</span></button>
+    </form>
+  </div>
+</section>
+
+<!-- CARS SLIDER -->
+<section class="section darker">
+  <div class="wrap">
+    <h2 class="s-title"><span class="ua">Останні викуплені авто</span><span class="ru">Последние выкупленные авто</span></h2>
+    <p class="s-sub"><span class="ua">для нас не важливий стан — викупимо будь-яке</span><span class="ru">состояние не важно — выкупим любой</span></p>
+    <div class="cars-slider-wrap"><div class="cars-slider">
+      <div class="car-card"><img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=600&h=400&q=85" alt="Toyota Camry"><div class="car-info"><div class="car-model">Toyota Camry</div><div class="car-year">2018</div><div class="car-price">$11 200</div><div class="car-cond"><span class="ua">Відмінний стан</span><span class="ru">Отличное</span></div></div></div>
+      <div class="car-card"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&h=400&q=85" alt="Volkswagen Passat"><div class="car-info"><div class="car-model">Volkswagen Passat</div><div class="car-year">2015</div><div class="car-price">$7 400</div><div class="car-cond"><span class="ua">Після ДТП</span><span class="ru">После ДТП</span></div></div></div>
+      <div class="car-card"><img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&w=600&h=400&q=85" alt="Hyundai Tucson"><div class="car-info"><div class="car-model">Hyundai Tucson</div><div class="car-year">2017</div><div class="car-price">$9 800</div><div class="car-cond"><span class="ua">Хороший стан</span><span class="ru">Хорошее</span></div></div></div>
+      <div class="car-card"><img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=600&h=400&q=85" alt="Ford Focus"><div class="car-info"><div class="car-model">Ford Focus</div><div class="car-year">2013</div><div class="car-price">$4 600</div><div class="car-cond"><span class="ua">Кредитний</span><span class="ru">Кредитный</span></div></div></div>
+      <div class="car-card"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&h=400&q=85" alt="Kia Sportage"><div class="car-info"><div class="car-model">Kia Sportage</div><div class="car-year">2019</div><div class="car-price">$13 500</div><div class="car-cond"><span class="ua">Відмінний стан</span><span class="ru">Отличное</span></div></div></div>
+      <div class="car-card"><img src="https://images.unsplash.com/photo-1616455579100-2ceaa4eb2d37?auto=format&fit=crop&w=600&h=400&q=85" alt="Renault Megane"><div class="car-info"><div class="car-model">Renault Megane</div><div class="car-year">2016</div><div class="car-price">$5 900</div><div class="car-cond"><span class="ua">Потребує ремонту</span><span class="ru">Требует ремонта</span></div></div></div>
+      <div class="car-card"><img src="https://images.unsplash.com/photo-1555353540-64580b51c258?auto=format&fit=crop&w=600&h=400&q=85" alt="Skoda Octavia"><div class="car-info"><div class="car-model">Skoda Octavia</div><div class="car-year">2014</div><div class="car-price">$6 800</div><div class="car-cond"><span class="ua">Хороший стан</span><span class="ru">Хорошее</span></div></div></div>
+      <!-- duplicate -->
+      <div class="car-card"><img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=600&h=400&q=85" alt="Toyota Camry"><div class="car-info"><div class="car-model">Toyota Camry</div><div class="car-year">2018</div><div class="car-price">$11 200</div><div class="car-cond"><span class="ua">Відмінний стан</span><span class="ru">Отличное</span></div></div></div>
+      <div class="car-card"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&h=400&q=85" alt="Volkswagen Passat"><div class="car-info"><div class="car-model">Volkswagen Passat</div><div class="car-year">2015</div><div class="car-price">$7 400</div><div class="car-cond"><span class="ua">Після ДТП</span><span class="ru">После ДТП</span></div></div></div>
+      <div class="car-card"><img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&w=600&h=400&q=85" alt="Hyundai Tucson"><div class="car-info"><div class="car-model">Hyundai Tucson</div><div class="car-year">2017</div><div class="car-price">$9 800</div><div class="car-cond"><span class="ua">Хороший стан</span><span class="ru">Хорошее</span></div></div></div>
+      <div class="car-card"><img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=600&h=400&q=85" alt="Ford Focus"><div class="car-info"><div class="car-model">Ford Focus</div><div class="car-year">2013</div><div class="car-price">$4 600</div><div class="car-cond"><span class="ua">Кредитний</span><span class="ru">Кредитный</span></div></div></div>
+      <div class="car-card"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&h=400&q=85" alt="Kia Sportage"><div class="car-info"><div class="car-model">Kia Sportage</div><div class="car-year">2019</div><div class="car-price">$13 500</div><div class="car-cond"><span class="ua">Відмінний стан</span><span class="ru">Отличное</span></div></div></div>
+      <div class="car-card"><img src="https://images.unsplash.com/photo-1616455579100-2ceaa4eb2d37?auto=format&fit=crop&w=600&h=400&q=85" alt="Renault Megane"><div class="car-info"><div class="car-model">Renault Megane</div><div class="car-year">2016</div><div class="car-price">$5 900</div><div class="car-cond"><span class="ua">Потребує ремонту</span><span class="ru">Требует ремонта</span></div></div></div>
+      <div class="car-card"><img src="https://images.unsplash.com/photo-1555353540-64580b51c258?auto=format&fit=crop&w=600&h=400&q=85" alt="Skoda Octavia"><div class="car-info"><div class="car-model">Skoda Octavia</div><div class="car-year">2014</div><div class="car-price">$6 800</div><div class="car-cond"><span class="ua">Хороший стан</span><span class="ru">Хорошее</span></div></div></div>
+    </div></div>
+  </div>
+</section>
+
+<!-- CALLUS -->
+<div class="callus">
+  <div class="wrap">
+    <h2><span class="ua">Зателефонуйте нам</span><span class="ru">Позвоните нам</span></h2>
+    <p><span class="ua">або залиште заявку на сайті, щоб дізнатись вартість свого авто за 5 хвилин</span><span class="ru">или оставьте заявку на сайте, чтобы узнать стоимость своего авто за 5 минут</span></p>
+    <div class="callus-btns">
+      <a href="tel:+380937025842" class="btn-call b-phone">📞 +38 (093) 702-58-42</a>
+      <a href="tel:+380979121212" class="btn-call b-phone">📞 +38 (097) 912-12-12</a>
+      <a href="tel:+380961881818" class="btn-call b-phone">📞 +38 (096) 188-18-18</a>
+      <a href="viber://chat?number=%2B380937025842" class="btn-call b-viber">📱 Viber</a>
+      <a href="https://t.me/+380937025842" class="btn-call b-tg">✈️ Telegram</a>
+      <a href="https://wa.me/380937025842" class="btn-call b-wa">💬 WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-grid">
+    <div><div class="stat-num">473+</div><div class="stat-lbl"><span class="ua">викуплених авто за рік</span><span class="ru">выкупленных авто в год</span></div></div>
+    <div><div class="stat-num">738+</div><div class="stat-lbl"><span class="ua">оглянутих авто за рік</span><span class="ru">осмотренных авто в год</span></div></div>
+    <div><div class="stat-num">до 95%</div><div class="stat-lbl"><span class="ua">платимо від роздрібної вартості</span><span class="ru">платим от розничной стоимости</span></div></div>
+    <div><div class="stat-num">2103+</div><div class="stat-lbl"><span class="ua">прийнятих заявок за рік</span><span class="ru">принятых заявок в год</span></div></div>
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<section class="reviews-section">
+  <div class="wrap">
+    <h2 class="s-title"><span class="ua">Відгуки про роботу з нами</span><span class="ru">Отзывы о нашей работе</span></h2>
+    <p class="s-sub"><span class="ua">ми вдячні кожному, хто їх залишає</span><span class="ru">мы благодарны каждому, кто их оставляет</span></p>
+    <div class="reviews-grid">
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">
+          <span class="ua">Мав автомобіль з проблемами по кузову та техніці. Продавати на сайтах не хотів — це довго. Після попередньої оцінки по телефону приїхав співробітник, оглянули, домовились про ціну, угода відбулась. Всім дуже задоволений.</span>
+          <span class="ru">Был автомобиль с проблемами по кузову и технике. Продавать на сайтах не хотел — долго. После предварительной оценки по телефону приехал сотрудник, осмотрели, договорились о цене, сделка состоялась. Всем очень доволен.</span>
+        </p>
+        <div class="rev-author">Максим, 44</div>
+        <div class="rev-tag"><span class="ua">Київ · проблеми з кузовом</span><span class="ru">Киев · проблемы с кузовом</span></div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">
+          <span class="ua">Купив авто в кредит у 2011 році, виплатити не встиг, банк наклав арест. Знайшов «АвтоВикуп Київ» в інтернеті. Ціна влаштувала, хоча юридично були великі проблеми. Хлопцям дякую!</span>
+          <span class="ru">Купил авто в кредит в 2011 году, банк наложил арест. Нашёл «АвтоВикуп Киев» в интернете. Цена устроила, несмотря на юридические проблемы. Ребятам спасибо!</span>
+        </p>
+        <div class="rev-author">Володимир, 56</div>
+        <div class="rev-tag"><span class="ua">Бровари · арешт від банку</span><span class="ru">Бровары · арест от банка</span></div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">
+          <span class="ua">Потрапив у ДТП. Відновлювати не було ні сил, ні грошей. Продав «як є» — ціну запропонували хорошу. Документи оформили за 3 години. Рекомендую!</span>
+          <span class="ru">Попал в ДТП. Восстанавливать не было сил и денег. Продал «как есть» — цену предложили хорошую. Документы оформили за 3 часа. Рекомендую!</span>
+        </p>
+        <div class="rev-author">Іван, 30</div>
+        <div class="rev-tag"><span class="ua">Ірпінь · авто після ДТП</span><span class="ru">Ирпень · авто после ДТП</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="wrap">
+    <h2 class="s-title"><span class="ua">Часті запитання</span><span class="ru">Частые вопросы</span></h2>
+    <p class="s-sub"><span class="ua">зібрали найпопулярніші питання і відповіли на них</span><span class="ru">собрали самые популярные вопросы и ответили на них</span></p>
+    <div class="faq-wrap">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span><span class="ua">Скільки ви платите за автомобіль?</span><span class="ru">Сколько вы платите за автомобиль?</span></span><span class="arr">▼</span></div>
+        <div class="faq-a"><span class="ua">Платимо до 95% від роздрібної вартості. Перед виплатою необхідно дізнатись рік, стан, марку та оглянути автомобіль.</span><span class="ru">Платим до 95% от розничной стоимости. Перед выплатой необходимо узнать год, состояние, марку и осмотреть автомобиль.</span></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span><span class="ua">Як з вами зв'язатись?</span><span class="ru">Как с вами связаться?</span></span><span class="arr">▼</span></div>
+        <div class="faq-a"><span class="ua">Телефонуйте <a href="tel:+380937025842">+38 (093) 702-58-42</a>, <a href="tel:+380979121212">+38 (097) 912-12-12</a>, <a href="tel:+380961881818">+38 (096) 188-18-18</a>, пишіть у Viber або Telegram по тому ж номеру, або залишайте заявку на сайті.</span><span class="ru">Звоните <a href="tel:+380937025842">+38 (093) 702-58-42</a>, <a href="tel:+380979121212">+38 (097) 912-12-12</a>, <a href="tel:+380961881818">+38 (096) 188-18-18</a>, пишите в Viber или Telegram по тому же номеру, или оставляйте заявку на сайте.</span></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span><span class="ua">Які авто ви викупляєте?</span><span class="ru">Какие авто вы выкупаете?</span></span><span class="arr">▼</span></div>
+        <div class="faq-a"><span class="ua">Абсолютно будь-які: нові, після ДТП, затоплені, з проблемними документами, кредитні, нерозмитнені — будь-яке ваше авто.</span><span class="ru">Абсолютно любые: новые, после ДТП, затопленные, с проблемными документами, кредитные, нерастаможенные — любой ваш автомобиль.</span></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span><span class="ua">Коли я отримаю гроші?</span><span class="ru">Когда я получу деньги?</span></span><span class="arr">▼</span></div>
+        <div class="faq-a"><span class="ua">Повну вартість виплачуємо в той самий день після огляду авто та домовленості про ціну. На це потрібно близько 2 годин.</span><span class="ru">Полную стоимость выплачиваем в тот же день после осмотра авто и договорённости о цене. На это нужно около 2 часов.</span></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span><span class="ua">Чи потрібно везти авто до вас?</span><span class="ru">Нужно ли везти авто к вам?</span></span><span class="arr">▼</span></div>
+        <div class="faq-a"><span class="ua">Ні! Ми приїдемо до вас і оглянемо автомобіль. Будь-яке місце в межах Києва та Київської області.</span><span class="ru">Нет! Мы приедем к вам и осмотрим автомобиль. Любое место в пределах Киева и Киевской области.</span></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span><span class="ua">Хто займається оформленням документів?</span><span class="ru">Кто занимается оформлением документов?</span></span><span class="arr">▼</span></div>
+        <div class="faq-a"><span class="ua">Ми! Оформлення всіх документів беремо на себе — швидко і якісно.</span><span class="ru">Мы! Оформление всех документов берём на себя — быстро и качественно.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGIONS -->
+<section class="regions-section">
+  <div class="wrap">
+    <h2 class="s-title"><span class="ua">Райони <span class="hl">роботи</span></span><span class="ru">Районы <span class="hl">работы</span></span></h2>
+    <div class="regions-chips">
+      <div class="region-chip">🏙️ <span class="ua">Київ<span>усі райони міста</span></span><span class="ru">Киев<span>все районы города</span></span></div>
+      <div class="region-chip">🛣️ <span class="ua">Київська область<span>Бровари, Ірпінь, Буча, Бориспіль, Вишневе, Васильків</span></span><span class="ru">Киевская область<span>Бровары, Ирпень, Буча, Борисполь, Вишневое, Васильков</span></span></div>
+      <div class="region-chip">🚗 <span class="ua">Виїзд оцінювача<span>безкоштовно по всій області</span></span><span class="ru">Выезд оценщика<span>бесплатно по всей области</span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo">АвтоВикуп Київ</div>
+  <p><span class="ua">Терміновий викуп авто · Київ · Київська обл.</span><span class="ru">Срочный выкуп авто · Киев · Киевская обл.</span></p>
+  <p style="margin-top:8px"><a href="tel:+380937025842">+380 93 702-58-42</a> · <a href="tel:+380979121212">+380 97 912-12-12</a> · <a href="tel:+380961881818">+380 96 188-18-18</a> · <a href="viber://chat?number=%2B380937025842">Viber</a> · <a href="https://t.me/+380937025842">Telegram</a> · <a href="https://wa.me/380937025842">WhatsApp</a></p>
+  <p style="margin-top:16px;opacity:.4">© 2026 АвтоВикуп Київ</p>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-bg" id="modal">
+  <div class="modal-box">
+    <span class="mx" onclick="closeModal()">✕</span>
+    <div class="mi">✅</div>
+    <h2><span class="ua">Заявку прийнято!</span><span class="ru">Заявка принята!</span></h2>
+    <p><span class="ua">Наш менеджер зателефонує вам протягом 5 хвилин. Дякуємо!</span><span class="ru">Наш менеджер позвонит вам в течение 5 минут. Спасибо!</span></p>
+    <button class="btn-gold" onclick="closeModal()"><span class="ua">Закрити</span><span class="ru">Закрыть</span></button>
+  </div>
+</div>
+
+<script>
+var condUA=['— Оберіть стан —','Відмінний (без ушкоджень)','Хороший (дрібні дефекти)','Після ДТП','Потребує ремонту','Не на ходу','Після пожежі / затоплення'];
+var condRU=['— Выберите состояние —','Отличное (без повреждений)','Хорошее (мелкие дефекты)','После ДТП','Требует ремонта','Не на ходу','После пожара / затопления'];
+var gearUA=['— Тип КПП —','Автомат','Механіка','Варіатор','Робот'];
+var gearRU=['— Тип КПП —','Автомат','Механика','Вариатор','Робот'];
+
+function fillSelects(lang){
+  var conds=lang==='ru'?condRU:condUA;
+  var gears=lang==='ru'?gearRU:gearUA;
+  document.querySelectorAll('.sel-cond').forEach(function(s){
+    s.innerHTML='';
+    conds.forEach(function(t,i){var o=document.createElement('option');o.value=i?t:'';o.textContent=t;s.appendChild(o);});
+  });
+  document.querySelectorAll('.sel-gear').forEach(function(s){
+    s.innerHTML='';
+    gears.forEach(function(t,i){var o=document.createElement('option');o.value=i?t:'';o.textContent=t;s.appendChild(o);});
+  });
+}
+
+function setLang(l){
+  document.documentElement.lang=l;
+  localStorage.setItem('lang',l);
+  document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('active',b.dataset.lang===l);});
+  fillSelects(l);
+}
+
+(function(){
+  var l=localStorage.getItem('lang')||'uk';
+  setLang(l);
+})();
+
+function submitForm(e){e.preventDefault();document.getElementById('modal').classList.add('show');}
+function closeModal(){document.getElementById('modal').classList.remove('show');}
+document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+function toggleFaq(el){el.parentElement.classList.toggle('open');}
+</script>
+</body>
+</html>

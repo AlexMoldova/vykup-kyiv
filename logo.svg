@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- badge -->
+  <circle cx="256" cy="256" r="240" fill="#0B1929" stroke="#CC0000" stroke-width="16"/>
+
+  <!-- coin -->
+  <circle cx="256" cy="126" r="58" fill="#F5B301"/>
+  <circle cx="256" cy="126" r="46" fill="none" stroke="#0B1929" stroke-opacity=".45" stroke-width="3"/>
+  <!-- hryvnia: correct ₴ — mirrored hook + two bars -->
+  <path d="M282 96 c-34 0 -34 26 0 26 c34 0 34 26 0 26" stroke="#0B1929" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <rect x="226" y="122" width="60" height="9" rx="4.5" fill="#0B1929"/>
+  <rect x="226" y="138" width="60" height="9" rx="4.5" fill="#0B1929"/>
+
+  <!-- car: one clean body path, arches = cutouts via dark circles ON body -->
+  <path d="M80 366 q0-40 46-44 l30-2 32-38 q13-16 34-16 h64 q21 0 34 16 l32 38 30 2 q46 4 46 44 v6 q0 12-14 12 h-52 a32 32 0 0 0-64 0 h-92 a32 32 0 0 0-64 0 h-52 q-14 0-14-12 z" fill="#FFFFFF"/>
+  <!-- wheel arch shadows -->
+  <circle cx="160" cy="384" r="30" fill="#0B1929"/>
+  <circle cx="352" cy="384" r="30" fill="#0B1929"/>
+  <!-- wheels -->
+  <circle cx="160" cy="384" r="24" fill="#0B1929" stroke="#FFFFFF" stroke-width="8"/>
+  <circle cx="352" cy="384" r="24" fill="#0B1929" stroke="#FFFFFF" stroke-width="8"/>
+  <!-- windows -->
+  <path d="M176 306 l26-34 q4-6 12-6 h22 v40 z" fill="#0B1929"/>
+  <path d="M248 266 h30 q10 0 16 8 l24 32 h-70 z" fill="#0B1929"/>
+  <!-- lights -->
+  <rect x="90" y="326" width="26" height="10" rx="5" fill="#CC0000"/>
+  <rect x="394" y="326" width="24" height="10" rx="5" fill="#F5B301"/>
+
+  <!-- label -->
+  <text x="254" y="438" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="31" font-weight="bold" fill="#FFFFFF" letter-spacing="2">ВИКУП КИЇВ</text>
+</svg>
