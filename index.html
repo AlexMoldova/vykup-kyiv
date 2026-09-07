@@ -28,11 +28,14 @@ html[lang="ru"] .ru{display:revert}
 .lang-btn.active{background:var(--gold);color:var(--bg)}
 .lang-btn:hover:not(.active){color:var(--white)}
 .hdr-right{text-align:right}
-.hdr-phones{display:flex;flex-direction:column;align-items:flex-end;gap:1px}
+.header{padding-right:24px}
+.hdr-phones{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+.hdr-alt-row{display:flex;gap:14px;align-items:center}
+.hdr-alt-row .hdr-ph-alt{font-size:.88rem}
 .hdr-phone{display:block;font-weight:800;color:var(--gold2);text-decoration:none;white-space:nowrap;line-height:1.25}
 .hdr-ph-main{font-size:1.2rem}
 .hdr-ph-alt{font-size:.92rem;color:var(--muted);font-weight:700}
-.hdr-msg{display:flex;gap:12px;justify-content:flex-end;margin-top:3px}
+.hdr-msg{display:flex;gap:12px;justify-content:flex-end;margin-top:4px;margin-bottom:2px}
 .hdr-msg a{font-size:.75rem;font-weight:600;color:var(--muted);text-decoration:none;transition:color .2s}
 .hdr-msg a:hover{color:var(--gold)}
 
@@ -215,6 +218,7 @@ footer a{color:var(--gold);text-decoration:none}
   .hdr-phones{align-items:flex-end}
   .hdr-ph-main{font-size:1.02rem}
   .hdr-ph-alt{display:none}
+  .hdr-alt-row{display:none}
   .hdr-right{text-align:right}
 }
 @media(max-width:380px){
@@ -252,8 +256,10 @@ footer a{color:var(--gold);text-decoration:none}
   <div class="hdr-right">
     <div class="hdr-phones">
       <a class="hdr-phone hdr-ph-main" href="tel:+380937025842">+38 (093) 702-58-42</a>
-      <a class="hdr-phone hdr-ph-alt" href="tel:+380979121212">+38 (097) 912-12-12</a>
-      <a class="hdr-phone hdr-ph-alt" href="tel:+380961881818">+38 (096) 188-18-18</a>
+      <div class="hdr-alt-row">
+        <a class="hdr-phone hdr-ph-alt" href="tel:+380979121212">+38 (097) 912-12-12</a>
+        <a class="hdr-phone hdr-ph-alt" href="tel:+380961881818">+38 (096) 188-18-18</a>
+      </div>
     </div>
     <div class="hdr-msg">
       <a href="viber://chat?number=%2B380937025842">📱 Viber</a>
